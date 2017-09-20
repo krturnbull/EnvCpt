@@ -35,3 +35,9 @@ test_that("AIC not matrix",expect_error(AIC(tmp),"first element in the object li
 tmp=list(summary=matrix(LETTERS,nrow=2))
 class(tmp)="envcpt"
 test_that("AIC not numeric",expect_error(AIC(tmp),"First two rows in matrix in first element of object list must be numeric"))
+
+
+## create a test for object not of class "envcpt"
+tmp=rnorm(100)
+class(tmp)="env"
+test_that("AIC of class type 'envcpt'",expect_error(AIC(tmp),"object must be of class envcpt"))
